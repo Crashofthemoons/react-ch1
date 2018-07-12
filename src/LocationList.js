@@ -4,8 +4,8 @@ import Location from "./Location"
 export default class LocationList extends Component {
     state = {
         locations: [
-            { id: 1, name: "Nashville North" },
-            { id: 2, name: "Nashville South" }
+            { id: 21, name: "Nashville North" },
+            { id: 22, name: "Nashville South" }
         ]
       }
     render() {
@@ -13,7 +13,7 @@ export default class LocationList extends Component {
             <ul>
                 {
                     this.state.locations.map(location=>{
-                       return <Location location={location}/>
+                       return <Location location={location} key={location.id}/>
                     })
                 }
             </ul>

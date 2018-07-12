@@ -4,10 +4,10 @@ import Employee from "./Employee"
 export default class EmployeeList extends Component {
     state = {
         employees: [
-            { id: 1, name: "Jessica Younker" },
-            { id: 2, name: "Jordan Nelson" },
-            { id: 3, name: "Zoe LeBlanc" },
-            { id: 4, name: "Blaise Roberts" }
+            { id: 17, name: "Jessica Younker" },
+            { id: 18, name: "Jordan Nelson" },
+            { id: 19, name: "Zoe LeBlanc" },
+            { id: 20, name: "Blaise Roberts" }
         ]
     }
     render() {
@@ -15,7 +15,7 @@ export default class EmployeeList extends Component {
             <ul>
                 {
                     this.state.employees.map(employee=>{
-                       return <Employee employee={employee}/>
+                       return <Employee employee={employee} key={employee.id}/>
                     })
                 }
             </ul>

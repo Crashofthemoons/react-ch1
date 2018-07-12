@@ -10,20 +10,20 @@ export default class AnimalList extends Component {
             { id: 4, name: "Flynn" }
         ],
         owners: [
-            { id: 1, name: "Ryan Tanay" },
-            { id: 2, name: "Emma Beaton" },
-            { id: 3, name: "Dani Adkins" },
-            { id: 4, name: "Adam Oswalt" },
-            { id: 5, name: "Fletcher Bangs" },
-            { id: 6, name: "Angela Lee" }
+            { id: 5, name: "Ryan Tanay" },
+            { id: 6, name: "Emma Beaton" },
+            { id: 7, name: "Dani Adkins" },
+            { id: 8, name: "Adam Oswalt" },
+            { id: 9, name: "Fletcher Bangs" },
+            { id: 10, name: "Angela Lee" }
         ],
         animalsAndOwners: [
-          { id: 1, animalId: 1, ownerId: 1},
-          { id: 2, animalId: 2, ownerId: 2},
-          { id: 3, animalId: 2, ownerId: 3},
-          { id: 4, animalId: 3, ownerId: 4},
-          { id: 5, animalId: 4, ownerId: 5},
-          { id: 6, animalId: 4, ownerId: 6}
+          { id: 11, animalId: 1, ownerId: 1},
+          { id: 12, animalId: 2, ownerId: 2},
+          { id: 13, animalId: 2, ownerId: 3},
+          { id: 14, animalId: 3, ownerId: 4},
+          { id: 15, animalId: 4, ownerId: 5},
+          { id: 16, animalId: 4, ownerId: 6}
         ]
     }
     render() {
@@ -48,7 +48,7 @@ export default class AnimalList extends Component {
             <ul>
                 {
                     this.state.animals.map(animal=>{
-                       return <Animal animal={animal}/>
+                       return <Animal animal={animal} key={animal.id}/>
                     })
                 }
             </ul>
