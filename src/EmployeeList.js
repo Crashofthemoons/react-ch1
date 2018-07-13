@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
 import Employee from "./Employee"
+import APIManager from "./APIManager"
 
 export default class EmployeeList extends Component {
     state = {
-        employees: [
-            { id: 17, name: "Jessica Younker" },
-            { id: 18, name: "Jordan Nelson" },
-            { id: 19, name: "Zoe LeBlanc" },
-            { id: 20, name: "Blaise Roberts" }
-        ]
+        employees: []
     }
+
+    componentDidMount () {
+        APIManager.getEmployees()
+            .then(employees => this.setState({
+                employees: employees
+            }))
+    }
+
     render() {
         return (
-            <ul>
+            <React.Fragment>
                 {
-                    this.state.employees.map(employee=>{
-                       return <Employee employee={employee} key={employee.id}/>
-                    })
+                    this.state.employees.map(employee =>
+                        <Employee key={employee.id} employee={employee}>
+                            {employee.name}
+                        </Employee>
+                    )
                 }
-            </ul>
+            </React.Fragment>
         )
     }
 }

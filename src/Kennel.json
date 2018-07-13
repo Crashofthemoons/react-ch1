@@ -1,0 +1,34 @@
+{
+    "employees": [
+        { "id": 1, "name": "Jessica Younker" },
+        { "id": 2, "name": "Jordan Nelson" },
+        { "id": 3, "name": "Zoe LeBlanc" },
+        { "id": 4, "name": "Blaise Roberts" }
+    ],
+    "animals": [
+            { "id": 1, "name": "Spike" },
+            { "id": 2, "name": "Doug" },
+            { "id": 3, "name": "Bonkers" },
+            { "id": 4, "name": "Flynn" }
+    ],
+    "owners": [
+            { "id": 5, "name": "Ryan Tanay" },
+            { "id": 6, "name": "Emma Beaton" },
+            { "id": 7, "name": "Dani Adkins" },
+            { "id": 8, "name": "Adam Oswalt" },
+            { "id": 9, "name": "Fletcher Bangs" },
+            { "id": 10, "name": "Angela Lee" }
+    ],
+    "animalsAndOwners": [
+          { "id": 11, "animalId": 1, "ownerId": 1},
+          { "id": 12, "animalId": 2, "ownerId": 2},
+          { "id": 13, "animalId": 2, "ownerId": 3},
+          { "id": 14, "animalId": 3, "ownerId": 4},
+          { "id": 15, "animalId": 4, "ownerId": 5},
+          { "id": 16, "animalId": 4, "ownerId": 6}
+    ],
+    "locations": [
+            { "id": 21, "name": "Nashville North" },
+            { "id": 22, "name": "Nashville South" }
+    ]
+}

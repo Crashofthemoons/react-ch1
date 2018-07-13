@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
 import Location from "./Location"
+import APIManager from "./APIManager"
 
 export default class LocationList extends Component {
     state = {
-        locations: [
-            { id: 21, name: "Nashville North" },
-            { id: 22, name: "Nashville South" }
-        ]
-      }
+        locations: []
+    }
+
+    componentDidMount () {
+        APIManager.getLocations()
+            .then(locations => this.setState({
+                locations: locations
+            }))
+    }
+
     render() {
         return (
-            <ul>
+            <React.Fragment>
                 {
-                    this.state.locations.map(location=>{
-                       return <Location location={location} key={location.id}/>
-                    })
+                    this.state.locations.map(location =>
+                        <Location key={location.id} location={location}>
+                            {location.name}
+                        </Location>
+                    )
                 }
-            </ul>
+            </React.Fragment>
         )
     }
 }
