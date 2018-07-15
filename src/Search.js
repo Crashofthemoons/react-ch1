@@ -14,23 +14,21 @@ export default class Search extends Component {
     searchBar = (event) => {
         if (event.key === "Enter") {
             console.log("pressed enter")
-            APIManager.searchAnimals(event.target.value)
-            .then(animals => {
-                this.setState({
-                    animals: animals
-                })
-                console.log(animals)
-            })
-            APIManager.searchLocations(event.target.value)
-            .then(locations => this.setState({
-                locations: locations
-            }))
-            APIManager.searchEmployees(event.target.value)
-            .then(employees => this.setState({
-                employees: employees
-            }))
+            let animalSearch = APIManager.searchAnimals(event.target.value)
 
-            //redirect and chain all .thens together.
+            let locationSearch = APIManager.searchLocations(event.target.value)
+
+            let employeeSearch = APIManager.searchEmployees(event.target.value)
+
+            Promise.all([animalSearch, locationSearch, employeeSearch]).then(values => {
+                this.setState({
+                    animals: values[0],
+                    locations: values[1],
+                    employees: values[2]
+                })
+                console.log(values[0], values[1], values[2])
+              });
+            //redirect
 
         }
     }
