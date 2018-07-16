@@ -7,12 +7,14 @@
   ],
   "animals": [
     {
-      "id": 5,
-      "name": "Hugo",
-      "breed": "Boston Terrier"
+      "name": "Holli",
+      "breed": "Corgi",
+      "id": 1
     },
     {
-      "id": 6
+      "name": "Dixie",
+      "breed": "Maltise",
+      "id": 2
     }
   ],
   "owners": [

@@ -42,10 +42,13 @@ export default class AnimalList extends Component {
         // Delete the specified animal from the API
         fetch("http://localhost:5002/animals/", {
             method: "POST",
-            data: {
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+            },
+            body: JSON.stringify({
                 "name": name,
                 "breed": breed
-            }
+            })
         })
         // When DELETE is finished, retrieve the new list of animals
         .then(() => {

@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import APIManager from "./APIManager"
 import { Redirect } from "react-router-dom"
-import SearchResults from "./SearchResults"
+
 
 export default class Search extends Component {
     state = {
