@@ -1,14 +1,12 @@
 import React, { Component } from "react"
 import APIManager from "./APIManager"
-import EmployeeList from "./EmployeeList"
-import AnimalList from "./AnimalList"
-import LocationList from "./LocationList"
+import { Redirect } from "react-router-dom"
+import SearchResults from "./SearchResults"
 
 export default class Search extends Component {
     state = {
-        animals: [],
-        locations: [],
-        employees: []
+        search: [],
+        dashboard: false
     }
     // const searchInput = document.getElementById("search").value
     searchBar = (event) => {
@@ -22,21 +20,35 @@ export default class Search extends Component {
 
             Promise.all([animalSearch, locationSearch, employeeSearch]).then(values => {
                 this.setState({
-                    animals: values[0],
-                    locations: values[1],
-                    employees: values[2]
+                    search: values[0].concat(values[1], values[2]),
+                    dashboard: true
                 })
-                console.log(values[0], values[1], values[2])
+                console.log(this.state)
               });
             //redirect
 
         }
     }
 
+    searchComplete() {
+        this.setState({
+            dashboard: false
+        })
+    }
+
 
     render() {
+        if (this.state.dashboard === true) {
+            this.searchComplete()
+            return <Redirect to={{
+                pathname: "/SearchResults",
+                state: { search: this.state.search}
+            }} />
+          }
+
         return (
             <input onKeyPress={this.searchBar} id="search" type="text" placeholder="Search.."/>
         )
     }
 }
+

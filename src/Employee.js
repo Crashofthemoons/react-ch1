@@ -9,7 +9,7 @@ export default props => {
                 {props.children}
             </h5>
                 {
-                    <Link className="card-link"
+                <Link className="card-link"
                     to={{
                         pathname: `/employees/${props.employee.id}`,
                         state: { employee: props.employee }
@@ -17,6 +17,7 @@ export default props => {
                     Details
                 </Link>
                 }
+                <button onClick={() => props.fireEmployee(props.employee.id)}>Delete</button>
             </div>
         </div>
     )

@@ -10,7 +10,7 @@ export default props => {
                 </h5>
                 <p className="card-text">{props.animal.breed}</p>
                 {
-                    <Link className="card-link"
+                <Link className="card-link"
                     to={{
                         pathname: `/animals/${props.animal.id}`,
                         state: { animal: props.animal }
@@ -18,6 +18,8 @@ export default props => {
                     Details
                 </Link>
                 }
+                <button onClick={() => props.checkOutAnimal(props.animal.id)}>Delete</button>
+                <button onClick={() => props.makeAnimal(props.animal.id)}>Delete</button>
             </div>
         </div>
     )

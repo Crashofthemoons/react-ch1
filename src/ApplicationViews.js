@@ -7,6 +7,7 @@ import Animal from "./Animal"
 import Employee from "./Employee"
 import Location from "./Location"
 import Login from './Login'
+import SearchResults from "./SearchResults"
 
 
 export default class ApplicationViews extends Component {
@@ -51,6 +52,9 @@ export default class ApplicationViews extends Component {
                        return <Employee employee={props.location.state.employee}>
                         {props.location.state.employee.name}
                     </Employee>
+                }} />
+                <Route path="/SearchResults" render={(props) => {
+                    return <SearchResults search={props.location.state.search} />
                 }} />
             </React.Fragment>
         )
